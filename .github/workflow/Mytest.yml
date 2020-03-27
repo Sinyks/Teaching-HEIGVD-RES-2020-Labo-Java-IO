@@ -1,0 +1,28 @@
+name: MyCoolCI
+
+# Here we define when we need to run github action
+on:
+    push:
+        branches:
+            - github-action-new
+    schedule:
+        cron:"0 10 * * 1-5"
+
+jobs:
+    # here we start our jobs that is called build
+    build:
+
+        runs-on: ubuntu-latest
+
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v2
+
+            - name: barrel roll
+            - run: echo Hello world!
+
+            - name: multi run shell
+            - run: |
+                echo Add other actions to build,
+                echo test, and deploy your project.
+                
